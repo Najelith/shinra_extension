@@ -33,8 +33,7 @@ jobs:
         
     - id: get-MINOR
       env:
-         # RUN_NUMB: ${{ github.run_number }}
-          RUN_NUMB: 3444582
+          RUN_NUMB: ${{ github.run_number }}
       run: |
         echo "::set-output name=MINOR::$(echo $((($env:RUN_NUMB % 100000)-(($env:RUN_NUMB % 1000)))/1000) )"
     - name: GET MINOR version
@@ -42,14 +41,12 @@ jobs:
         echo "${{steps.get-MINOR.outputs.MINOR}}"
     - id: get-MAJOR
       env:
-         # RUN_NUMB: ${{ github.run_number }}
-          RUN_NUMB: 3444582
+          RUN_NUMB: ${{ github.run_number }}
       run: |
         echo "::set-output name=MAJOR::$(echo $((($env:RUN_NUMB)-(($env:RUN_NUMB % 100000)))/100000) )"
     - name: GET MAJOR version
       run: |
         echo "${{steps.get-MAJOR.outputs.MAJOR}}"  
-        iamerror
     - uses: actions/checkout@v3
 
     - name: Add MSBuild to PATH
@@ -78,8 +75,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-          tag_name: release-${{ github.run_number }}
-          release_name: Release ${{ github.run_number }}
+          tag_name: release-v${{steps.get-MAJOR.outputs.MAJOR}}.${{steps.get-Minor.outputs.Minor}}.${{steps.get-PATCH.outputs.PATCH}}
+          release_name: Release v${{steps.get-MAJOR.outputs.MAJOR}}.${{steps.get-Minor.outputs.Minor}}.${{steps.get-PATCH.outputs.PATCH}}
     - name: Upload binary
       uses: actions/upload-release-asset@v1.0.1
       env:
