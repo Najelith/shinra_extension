@@ -37,8 +37,28 @@ jobs:
       # Add additional options to the MSBuild command line here (like platform or verbosity level).
       # See https://docs.microsoft.com/visualstudio/msbuild/msbuild-command-line-reference
       run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} ${{env.SOLUTION_FILE_PATH}}
-    - name: the fuck is this
-      id: semver-tag
-      uses: wakatime/semver-action@v1.5.1
+    - name: make version tag
+      id: AutoTagger
+      uses: anothrNick/github-tag-action@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        WITH_V: true
     - name: "Created tag"
-      run: echo "tag ${{ steps.semver-tag.outputs.semver_tag }}"
+      run: echo "tag {{ steps.AutoTagger.outputs.new_tag }}"
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1.0.0
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+          tag_name: release-${{ steps.AutoTagger.outputs.new_tag }}
+          release_name: Release ${{ github.sha }}
+    - name: Upload binary
+      uses: actions/upload-release-asset@v1.0.1
+      env:
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ${{env.GITHUB_WORKSPACE}}\serverextension\Release\ServerExtention.dll
+          asset_name: ServerExtention.dll
+          asset_content_type: application/vnd.microsoft.portable-executable
