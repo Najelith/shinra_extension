@@ -30,7 +30,7 @@ jobs:
         echo ::set-env name=PATCH::$(($RUN_NUMB % 1000))
     - name: herp
       run: |
-        echo "${{steps.get-PATCH.outputs.id}}"
+        echo "${{steps.get-PATCH.outputs.PATCH}}"
         echo "${{env.PATCH}}"
     - uses: actions/checkout@v3
 
