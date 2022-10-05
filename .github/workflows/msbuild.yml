@@ -22,14 +22,16 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - name: calculate PATCH
+    - id: get-PATCH
       env:
           RUN_NUMB: ${{ github.run_number }}
       run: |
-        echo ::set-env name=PATCH::$(($RUN_NUMB%1000))
+        id=$(echo $(($RUN_NUMB % 1000)) )
+        echo "::set-output name=PATCH::$id"
+        echo ::set-env name=PATCH::$(($RUN_NUMB % 1000))
     - name: herp
       run: |
-        echo $PATCH
+        echo "${{steps.get-PATCH.outputs.id}}"
         echo ${{env.PATCH}}
     - uses: actions/checkout@v3
 
