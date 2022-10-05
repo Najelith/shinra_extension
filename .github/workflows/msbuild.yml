@@ -37,20 +37,16 @@ jobs:
       # Add additional options to the MSBuild command line here (like platform or verbosity level).
       # See https://docs.microsoft.com/visualstudio/msbuild/msbuild-command-line-reference
       run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} ${{env.SOLUTION_FILE_PATH}}
-    - name: Generate release tag
-      uses: amitsingh-007/next-release-tag@v2.1.0
-      with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-    - name: "Created tag"
-      run: echo "tag {{ env.release_tag }}"
+    - name: "Release Tag"
+      run: echo "tag {{ env.GITHUB_RUN_NUMBER }}"
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1.0.0
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-          tag_name: release-${{ env.release_tag }}
-          release_name: Release ${{ env.release_tag }}
+          tag_name: release-${{ env.GITHUB_RUN_NUMBER }}
+          release_name: Release ${{ env.GITHUB_RUN_NUMBER }}
     - name: Upload binary
       uses: actions/upload-release-asset@v1.0.1
       env:
