@@ -26,6 +26,17 @@ jobs:
     runs-on: windows-latest
 
     steps:
+    - name: derp
+      run: |
+          echo "MAJOR=${{ github.run_number }}%100000" >> $GITHUB_ENV
+          echo $MAJOR
+          MINOR=${{ github.run_number }}
+          echo $MINOR
+          PATCH="$(echo ${{ github.run_number }}%100 )" 
+          echo "PATCH=${env.PATCH}" >> $env:GITHUB_ENV
+          echo ${{env.PATCH}}
+    - name: herp
+      run: echo ${{env.PATCH}}
     - uses: actions/checkout@v3
 
     - name: Add MSBuild to PATH
