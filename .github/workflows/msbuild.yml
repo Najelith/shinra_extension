@@ -46,7 +46,7 @@ jobs:
           echo $MAJOR
           echo "MINOR=${{ github.run_number }}%1000" >> $GITHUB_ENV
           echo $MINOR
-          echo "PATCH=${{ github.run_number }}%100" >> $GITHUB_ENV
+          echo "PATCH=$((${{ github.run_number }}%100))" >> $GITHUB_ENV
           echo ${{env.PATCH}}
     - name: Create Release
       id: create_release
