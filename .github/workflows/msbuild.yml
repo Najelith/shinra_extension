@@ -30,8 +30,8 @@ jobs:
         echo ::set-env name=PATCH::$(($RUN_NUMB % 1000))
     - name: herp
       run: |
-        echo ${{steps.get-PATCH.outputs.id}}
-        echo ${{env.PATCH}}
+        echo "${{steps.get-PATCH.outputs.id}}"
+        echo "${{env.PATCH}}"
     - uses: actions/checkout@v3
 
     - name: Add MSBuild to PATH
