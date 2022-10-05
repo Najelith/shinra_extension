@@ -26,8 +26,8 @@ jobs:
       env:
           RUN_NUMB: ${{ github.run_number }}
       run: |
-        echo ::set-output name=PATCH::$(echo $(($RUN_NUMB % 1000)) )
-        echo ::set-env name=PATCH::$(($RUN_NUMB % 1000))
+        echo ::set-output name=PATCH::$(echo $(($env:RUN_NUMB % 1000)) )
+        echo ::set-env name=PATCH::$(($env.RUN_NUMB % 1000))
     - name: herp
       run: |
         echo "${{steps.get-PATCH.outputs.PATCH}}"
