@@ -27,11 +27,9 @@ jobs:
           RUN_NUMB: ${{ github.run_number }}
       run: |
         echo "::set-output name=PATCH::$(echo $(($env:RUN_NUMB % 1000)) )"
-        echo "::set-env name=PATCH::$(($env:RUN_NUMB % 1000))"
     - name: herp
       run: |
         echo "${{steps.get-PATCH.outputs.PATCH}}"
-        echo "${{env.PATCH}}"
     - uses: actions/checkout@v3
 
     - name: Add MSBuild to PATH
