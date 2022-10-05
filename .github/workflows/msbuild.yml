@@ -15,8 +15,8 @@ env:
   # https://docs.github.com/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
   BUILD_CONFIGURATION: Release
 
-permissions:
-  contents: read
+#permissions:
+#  contents: read
 
 jobs:
   build:
@@ -40,20 +40,14 @@ jobs:
     - name: Output Run Number
       run: echo ${{ github.run_number }}
 #work you pile of shit
-#    - name: Create Release
-#      id: create_release
-#      uses: actions/create-release@v1.0.0
-#      env:
-#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#      with:
-#          tag_name: release-${{ github.sha }}
-#          release_name: Release ${{ github.sha }}
-    - name: Create a Release
-      uses: elgohr/Github-Release-Action@v4
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1.0.0
       env:
-        GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        title: release-${{ github.run_number }}
+          tag_name: release-${{ github.sha }}
+          release_name: Release ${{ github.sha }}
     - name: Upload binary
       uses: actions/upload-release-asset@v1.0.1
       env:
