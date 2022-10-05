@@ -38,7 +38,7 @@ jobs:
       # See https://docs.microsoft.com/visualstudio/msbuild/msbuild-command-line-reference
       run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} ${{env.SOLUTION_FILE_PATH}}
     - name: "Release Tag"
-      run: echo "tag {{ env.GITHUB_RUN_NUMBER }}"
+      run: echo ${{ env.GITHUB_RUN_NUMBER }}
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1.0.0
@@ -53,6 +53,6 @@ jobs:
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ${{env.GITHUB_WORKSPACE}}\serverextension\Release\ServerExtention.dll
+          asset_path: serverextension\Release\ServerExtention.dll
           asset_name: ServerExtention.dll
           asset_content_type: application/vnd.microsoft.portable-executable
