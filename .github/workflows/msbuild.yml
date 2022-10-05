@@ -40,14 +40,20 @@ jobs:
     - name: Output Run Number
       run: echo ${{ github.run_number }}
 #work you pile of shit
-    - name: Create Release
-      id: create_release
-      uses: actions/create-release@v1.0.0
+#    - name: Create Release
+#      id: create_release
+#      uses: actions/create-release@v1.0.0
+#      env:
+#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#      with:
+#          tag_name: release-${{ github.sha }}
+#          release_name: Release ${{ github.sha }}
+    - name: Create a Release
+      uses: elgohr/Github-Release-Action@v4
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
       with:
-          tag_name: release-${{ github.sha }}
-          release_name: Release ${{ github.sha }}
+        title: release-${{ github.run_number }}
     - name: Upload binary
       uses: actions/upload-release-asset@v1.0.1
       env:
