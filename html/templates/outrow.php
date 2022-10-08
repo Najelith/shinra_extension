@@ -1,0 +1,1 @@
+<tr><td><?= $action ?></td><td><?= $amount ?></td><td><?= $fname ?></td><td><?= $tname ?></td><td><?= $orderof ?></td><td><?= $usrip ?></td><td><?= $stadate ?></td></tr>

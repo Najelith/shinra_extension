@@ -1,0 +1,149 @@
+body{  	
+background: url(./img/bg.gif) #39434C repeat;
+FONT-FAMILY:  Arial, Verdana, sans-serif;
+FONT-SIZE: 10px ;
+scrollbar-face-color:#0C326B;
+scrollbar-shadow-color: #041131;
+scrollbar-highlight-color:#155BC4;
+scrollbar-3dlight-color: #11469D;
+scrollbar-darkshadow-color: #11509D;
+scrollbar-track-color:#041631;
+scrollbar-arrow-color:#99ff66;cursor: crosshair;
+margin: 10px 10px 10px 10px;
+color:#FFFFFF;
+}
+
+font{
+background: transparent;
+color:#FFFFFF;
+FONT-FAMILY: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	font-weight: normal;
+}
+
+A:link	{background-color: transparent;color:#FFFFFF;text-decoration: none;cursor: crosshair;}
+A:visited	{background-color: transparent;color:#FFFFFF;text-decoration:none;cursor:crosshair;}
+A:active	{background-color: transparent;color:#FFFFFF;border:1 #88cc88 solid;text-decoration:overline underline; cursor: crosshair;}
+A:hover	{background-color: transparent;color:#FFFFFF;border:1 #88ffcc solid;text-decoration:overline underline; cursor: crosshair;}
+h1 {
+	background: transparent;
+	color: #FFFFFF;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	text-align: left;
+}
+
+h2 {
+	background: transparent;
+	color: #FFFFFF;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	text-align: left;
+}
+
+h3 {
+	background: transparent;
+	color: #FFFFFF;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	text-align: left;
+}
+
+img {
+	border: 0px;
+}
+
+input {
+	background: #101F21;
+	border: 1px solid #000000;
+	color: #E1E1E1;
+	font-family: Verdana, Arial, Geneva, Helvetica, sans-serif;
+	font-size: 10px;
+}
+
+p {
+	background: transparent;
+	color: #FFFFFF;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	text-align: left;
+}
+
+select {
+	background: #101F21;
+	border-bottom: 1px solid #000000;
+	border-left: 1px solid #000000;
+	border-right: 0px;
+	border-top: 1px solid #000000;
+	color: #E1E1E1;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	font-weight: normal;
+}
+
+table {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+}
+
+td {
+	border: 1px solid #000000;
+}
+
+td.thing {
+	background: url(./img/td_bg.gif);
+	border: 1px solid #000000;
+	color: #FFFFFF;
+}
+
+div {
+	color: silver;
+}
+
+b {
+	color: silver;
+}
+
+i {
+        color: silver;
+}
+
+textarea {
+	background: #101F21;
+	border-bottom: 1px solid #000000;
+	border-left: 1px solid #000000;
+	border-right: 0px;
+	border-top: 1px solid #000000;
+	color: #E1E1E1;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	font-weight: normal;
+}
+
+a.thing:link {
+	background-color: transparent;
+	color: #E1E1E1;
+	text-decoration: underline;
+}
+
+a.thing:visited {
+	background-color: transparent;
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+
+a.thing:hover {
+	background-color: transparent;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+a.thing:active {
+	background-color: transparent;
+	color: #FFFFFF;
+}
+
+blockquote {
+	background: transparent;
+	color: #FFFFFF;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	text-align: left;
+}
