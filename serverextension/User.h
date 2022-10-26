@@ -38,6 +38,7 @@ private:
 	static std::map<void*, User*>* userMap; // used to map real 1p1 userpointer to extention userpointer
 public:
 	BYTE* realUser;
+	int plastnpc;
 
 	SOMA_LOC lastWH;
 
