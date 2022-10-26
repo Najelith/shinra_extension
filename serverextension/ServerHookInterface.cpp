@@ -628,7 +628,8 @@ void *(__thiscall *getnpcnid)(DWORD sourcePointer, int) = ((void *(__thiscall *)
 void* cNpc = getnpcnid(reinterpret_cast<DWORD>(sourcePointer),-10000);
 */
 //printf("%s npcevent ID: %d\n ",(CHAR*)((BYTE*)cNpc + 0x194),npcref-10000);
-
+// set npc pointer
+susr->plastnpc = (int) cNpc;
 
 //DWORD  ievent;
 	ievent= *reinterpret_cast<DWORD*>((BYTE*)cNpc + 0x3A0);
@@ -3442,9 +3443,49 @@ User__slmsg_wrapper( userPointer, addr);
 		 usr->SendStoreOpen(40+itemgt2,100+gt2tax,80,15);
   
   }
+// try to handel recv message in extention
+if((int)result >0)
+	{
+	// event manager look up test
+	//	printf("EVENT MANAGER LOOK UP\n");
+		//can't have nice things
+	 // EventManager* evtmngr = new EventManager();
+	//	printf("EVENT %d on ZONE %d :\n",(int)ievent,(int)susr->getZone());
+	
+		if(evtmngr != NULL)
+		{
+		EventData* evt = evtmngr->GetEventData((int)usr->getZone(),(int)result);
+			if(evt)
+			{ // not null
 
-void (__thiscall  *User__slmsg_wrapper)(void* userPointer, int addr) = ((void(__thiscall  *)(void* userPointer, int))0x00466DF0);
-User__slmsg_wrapper( userPointer, addr);
+
+
+					  susr->RunExtEvent((int)userPointer, (int)usr->plastnpc,(int)result,(int)usr->getZone(),evtmngr);
+						//reset shit?
+						 *((_DWORD *)userPointer + 0x1DC4) = -1;
+ 						 *((_DWORD *)userPointer + 0x1DC5) = -1;
+ 						 *((_DWORD *)userPointer + 0x1DC6) = -1;
+  						 *((_DWORD *)userPointer + 0x1DC7) = -1;
+					  return ;
+			}
+			else
+			{
+				printf("EVENT %d on ZONE %d NOT FOUND!\n",(int)result,(int)usr->getZone());
+			}
+
+		}
+		else{
+		   printf("EVENT Manager NOT INITILIZED!\n");
+		}
+
+	}	
+						*((_DWORD *)userPointer + 0x1DC4) = -1;
+ 						 *((_DWORD *)userPointer + 0x1DC5) = -1;
+ 						 *((_DWORD *)userPointer + 0x1DC6) = -1;
+  						 *((_DWORD *)userPointer + 0x1DC7) = -1;
+	return ;
+//void (__thiscall  *User__slmsg_wrapper)(void* userPointer, int addr) = ((void(__thiscall  *)(void* userPointer, int))0x00466DF0);
+//User__slmsg_wrapper( userPointer, addr);
 
 }
 
