@@ -3460,12 +3460,12 @@ if((int)result >0)
 
 
 
-					  susr->RunExtEvent((int)userPointer, (int)usr->plastnpc,(int)result,(int)usr->getZone(),evtmngr);
+					  usr->RunExtEvent((int)userPointer, (int)usr->plastnpc,(int)result,(int)usr->getZone(),evtmngr);
 						//reset shit?
-						 *((_DWORD *)userPointer + 0x1DC4) = -1;
- 						 *((_DWORD *)userPointer + 0x1DC5) = -1;
- 						 *((_DWORD *)userPointer + 0x1DC6) = -1;
-  						 *((_DWORD *)userPointer + 0x1DC7) = -1;
+						 *((DWORD *)userPointer + 0x1DC4) = -1;
+ 						 *((DWORD *)userPointer + 0x1DC5) = -1;
+ 						 *((DWORD *)userPointer + 0x1DC6) = -1;
+  						 *((DWORD *)userPointer + 0x1DC7) = -1;
 					  return ;
 			}
 			else
@@ -3479,10 +3479,10 @@ if((int)result >0)
 		}
 
 	}	
-						*((_DWORD *)userPointer + 0x1DC4) = -1;
- 						 *((_DWORD *)userPointer + 0x1DC5) = -1;
- 						 *((_DWORD *)userPointer + 0x1DC6) = -1;
-  						 *((_DWORD *)userPointer + 0x1DC7) = -1;
+						*((DWORD *)userPointer + 0x1DC4) = -1;
+ 						 *((DWORD *)userPointer + 0x1DC5) = -1;
+ 						 *((DWORD *)userPointer + 0x1DC6) = -1;
+  						 *((DWORD *)userPointer + 0x1DC7) = -1;
 	return ;
 //void (__thiscall  *User__slmsg_wrapper)(void* userPointer, int addr) = ((void(__thiscall  *)(void* userPointer, int))0x00466DF0);
 //User__slmsg_wrapper( userPointer, addr);
