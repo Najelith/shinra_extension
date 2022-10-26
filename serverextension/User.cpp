@@ -41,6 +41,7 @@ std::map<void*, User*>* User::userMap; //DO NOT REMOVE! THE LINKER WILL COME FOR
 User::User(BYTE* realUserPointer)
 {
 	this->realUser = realUserPointer;
+	this->plastnpc = 0;
 	this->key = 0;
 	this->keySize = 0;
 	this->stepCounter = 0;
@@ -1858,7 +1859,8 @@ signed int User::RunExtEventSection(int userpointer, int npcpointer, EventData *
                case 40u:
                 if(evt->instructions[index].params.size() > 8){
 
-    			 
+    			  // set up last npc pointer for recv sel msg
+			this->plastnpc = npcpointer;
 				// construct old EXEC struct 	
 
 	                  a2 = (unsigned int)&EXEC;
