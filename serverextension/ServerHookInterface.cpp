@@ -3043,7 +3043,7 @@ void __stdcall ServerHookInterface::User__slmsg_wrapper(void* userPointer, int a
 	// thebyte is usually 1
 	User* usr = User::getExtentionUserFromRealUser(userPointer);
 
-	//printf("msg(%s)->1:%d 2:%d 3:%d 4:%d  \n", (const char*)usr->getName(),*(DWORD *)(addr + 0x10), *(DWORD *)(addr + 0x18), *(DWORD *)(addr + 0x20),  *(DWORD *)(addr + 0x28) );
+	printf("msg(%s)->1:%d 2:%d 3:%d 4:%d  \n", (const char*)usr->getName(),*(DWORD *)(addr + 0x10), *(DWORD *)(addr + 0x18), *(DWORD *)(addr + 0x20),  *(DWORD *)(addr + 0x28) );
 
 	 
 	/*
@@ -3058,8 +3058,11 @@ User__slmsg_wrapper( userPointer, addr);
   result = GetShort((BYTE *)addr, (DWORD *)v9);
 
   result = *((DWORD *)userPointer + 0x1DC4 + result); //event selected
-
- // printf("msg(%s)-> eventselected:%d  \n", (const char*)usr->getName(), result );
+int rest2 = *((DWORD *)userPointer + 0x1DC5 + result); //event selected
+int res3 = *((DWORD *)userPointer + 0x1DC6 + result); //event selected
+int res4 = *((DWORD *)userPointer + 0x1DC7 + result); //event selected
+	
+  printf("msg(%s)-> eventselected:%d %d %d %d \n", (const char*)usr->getName(), result,rest2,rest3,rest4 );
 
   if (usr->getZone() == 2 && result == 65 && !usr->CheckGuildTown(14) && !usr->CheckGuildTownAlly(14) && usr->getGuildRank() > 0){
    
