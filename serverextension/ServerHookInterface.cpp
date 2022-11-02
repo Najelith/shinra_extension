@@ -3062,7 +3062,7 @@ int rest2 = *((DWORD *)userPointer + 0x1DC5 + result); //event selected
 int res3 = *((DWORD *)userPointer + 0x1DC6 + result); //event selected
 int res4 = *((DWORD *)userPointer + 0x1DC7 + result); //event selected
 	
-  printf("msg(%s)-> eventselected:%d %d %d %d \n", (const char*)usr->getName(), result,rest2,rest3,rest4 );
+  printf("msg(%s)-> eventselected:%d %d %d %d \n", (const char*)usr->getName(), result,rest2,res3,res4 );
 
   if (usr->getZone() == 2 && result == 65 && !usr->CheckGuildTown(14) && !usr->CheckGuildTownAlly(14) && usr->getGuildRank() > 0){
    
