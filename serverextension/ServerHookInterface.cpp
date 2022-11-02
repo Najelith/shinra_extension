@@ -3461,14 +3461,14 @@ if((int)result >0)
 			if(evt)
 			{ // not null
 
-
-
-					  usr->RunExtEvent((int)userPointer, (int)usr->plastnpc,(int)result,(int)usr->getZone(),evtmngr);
 						//reset shit?
 						 *((DWORD *)userPointer + 0x1DC4) = -1;
  						 *((DWORD *)userPointer + 0x1DC5) = -1;
  						 *((DWORD *)userPointer + 0x1DC6) = -1;
   						 *((DWORD *)userPointer + 0x1DC7) = -1;
+
+					  usr->RunExtEvent((int)userPointer, (int)usr->plastnpc,(int)result,(int)usr->getZone(),evtmngr);
+
 					  return ;
 			}
 			else
