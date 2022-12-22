@@ -11,7 +11,7 @@ if (session_status() == PHP_SESSION_NONE) {
 
 /*session is started if you don't write this line can't use $_Session  global variable*/
 
-
+include 'lib/db/pdo.php';
 include 'lib/sqldata.php';
 include 'lib/db/odbc.php';
 include 'functions.php';

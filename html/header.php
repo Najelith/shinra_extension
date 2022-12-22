@@ -4,6 +4,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 */
+include 'lib/db/pdo.php';
 include 'lib/sqldata.php';
 include 'lib/db/odbc.php';
 include 'functions.php';

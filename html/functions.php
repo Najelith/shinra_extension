@@ -108,7 +108,7 @@ include 'templates/gfooter.php';
 function mheader($title,$subtitle,$descript){ 
 include 'templates/header.php';
 }
-function mfooter($mess,$intuser,$hostname){ 
+function mfooter($mess, $intuser, $hostname){ 
 include 'templates/footer.php';
 }
 function monheader($title,$subtitle,$descript){ 
