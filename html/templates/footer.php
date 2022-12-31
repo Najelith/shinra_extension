@@ -43,19 +43,7 @@
 		      <tr>
 		        <td bgcolor="#2B333A" style="border-top:0px"><p><b>&raquo;</b> 
                   Users Online:&nbsp;
-<?php
-                 
-    //$query_getdata = new query($SQL, "SELECT * FROM CURRENTUSER");
-    
-//$intuser = 0;
-
-      //while($query_getdata->fetch()) {
-
-	//	$nnm = $query_getdata->field('nAccounID');
-	//	$intuser++;
-	//} 
-echo $intuser;	
-?>
+<?= find("SELECT COUNT(*) FROM CURRENTUSER")[0][0] ?? '0'; ?>
 
                   <br><img src="img/spacer_2.gif" width="1" height="4" alt="Spacer"><br>                 <!-- server status -->
 				<?PHP 
